@@ -1,0 +1,82 @@
+void main(){
+  ////list//
+  //unique identity index
+// List studentNames =[67,978,54,87,23,98,45];
+//  List studentNames= ["mehak","ayesh","hude","sabeel","ahemd","imad"];
+//   print(studentNames.isEmpty);
+//   studentNames.clear();
+//   print(studentNames.isNotEmpty);
+//   studentNames.add("value");
+//   studentNames=[];
+//   print(studentNames.isEmpty);
+  /////descending order/////////
+// studentNames.sort();
+//   print(studentNames.reversed);
+  //studentNames.removeWhere((e)=>e<50);
+  //studentNames.retainWhere((e)=>e<50);
+                              //arrow func //condition
+  //studentNames.removeAt(1,1);
+//  studentNames.remove("hude");
+  //print(studentNames);
+//studentNames.replaceRange(studentNames.length-1,studentNames.length,["maddy"]);//replace rang 3 chezen lata ha start end or replace
+//   print(studentNames[studentNames.length - 2]);
+//   studentNames[0]="ali";
+//   print (studentNames.first);
+//   print(studentNames[3]);
+//   print(studentNames.elementAt(4));
+//    studentNames.insert(1, 'For');
+//   String name="mehak";
+//   name="ali";
+//   print(name);
+//      studentNames.add("bye");
+// var abc=List.of(studentNames.reversed);
+
+//   /////sorting///
+  
+//     studentNames.sort();
+//     print(studentNames);
+
+
+//}
+  ////////////////////////////  Map//////////////
+  //data type
+  //aik sa zaida element askatha ha 
+  //unique indenty key or value //key same nai hu ghi //value same hu sakthi ha
+  
+  //kahi kch assign hu raha hu wo map ha
+//   //key kxh bhi hu sakthi ha
+//   List students=[
+//     {'name':'mehak',"rollno":100,'marks':20},//0index
+//     {'name':'bilsl',"rollno":054,'90marks':2}
+//   ];
+ Map<stringdynamics> studentrecord={'name':'mehak',"rollno":100,'marks':20}; //dynamictu wo us ka sub data ko kch bhi consider kar saktha ha
+                     //key  value
+   Map student2record={'name':'bilsl',"rollno":054,'90marks':2};
+
+  print(students[0]["name"]);
+            //index   
+  
+  
+  //put if absent aghar nai ha tu add kar daigha 
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
