@@ -1,0 +1,98 @@
+import 'dart:io';
+
+void main() {
+  //increment and decrement
+  // var abc = 0;
+  // abc = abc + 1;
+  // print(abc);
+//   var abc = 0;
+//   var a = --abc;
+//   print(abc);
+//   print(a);
+  // var abc = 0;
+  // var a = abc--;
+  // var b = ++a;
+  // var c = b++;
+  // var d = c--;
+  // var e = d++;
+  // var f = e-- - d++;
+  // print(f);
+  // print(c);
+  // var abc = 4;
+  // var a = 5;
+  // var c = 9;
+  // var d = (a++ - ++c) + (abc-- * 3);
+  // var q = --d * abc--;
+  // var n = q++ + (q-- * 2); //// q ma add hu gaya tha pahla he
+  // print(n);
+  // print(q);
+  ////pre increment : ++a
+  ///post increment : a++
+
+  //          ///////loop
+  //List studentNames = ["mehak", "sana", "amna", "alesha", "haha"];
+  // List number = [0, 1, 2, 3];
+  //multiple use cases we print multiple thing
+  //int number = 5; //intitlize the number here
+  //for (var a = 1; a < studentNames.length; a++) {
+  //print(a);
+  //  print("$a:${studentNames[a]}");
+
+  //for (var a = 1; a <= 10; a++) {
+  //print("$a mehak");/// show the number $
+  // print(a * 2);
+  //print("${number}*${a}=${number * a}");
+  //print("$number x $a =${number * a}");
+
+  /////////////for in loop
+  // for (var i in number) {
+  //   //i kese list ma chal raha that was student name i basially data type ha list ki whi utha kar laigha
+  //   print(i);
+  //   //dyanimc use when data type use
+  // }
+  ///////////// differentitate between even and odd
+  // List numbers = [3, 5, 6, 1, 9, 10, 4];
+  // List evenNumbers = [];
+  // List oddNumbers = [];
+  // for (int i in numbers) {
+  //   if (i % 2 == 0) {
+  //     evenNumbers.add(i);
+  //   } else {
+  //     oddNumbers.add(i);
+  //   }
+  // }
+  // print("even numbers : $evenNumbers");
+  // print("odd number : $oddNumbers");
+  //////////range
+  // for(var i=0; i<numbers.length; i++){
+  //   if (numbers[i]%2==0){ ////list ka name ka sath i lagha daigha
+  //      evenNumbers.add(numbers[i]);
+  //   } else {
+  //     oddNumbers.add(numbers[i]);
+  //   }
+  //   }
+  //    print("even numbers : $evenNumbers");
+  // print("odd number : $oddNumbers");
+  //////input lana
+  // var number = int.parse(stdin.readLineSync()!);
+  // if (number % 2 == 0) {
+  //   print("$number is even");
+  // } else {
+  //   print("$number is odd");
+  // }
+  //////////////while loop
+  // var abc = 0;
+  // while (abc < 5) {
+  //   print("$abc hello");
+  // }
+//   var username = stdin.readLineSync();
+//   var password = stdin.readLineSync();
+//   bool islogin = false;
+//   while (islogin == false) {
+//     if (username == "admin@gmail.com" && password == "12343576") {
+//       print("login successfull");
+//       islogin = true;
+
+//     }
+//   }
+// }
