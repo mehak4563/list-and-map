@@ -1,0 +1,69 @@
+import 'dart:io';
+
+List task = [];
+void main() {
+  //null safety nu chk no data type of null
+  //jis ka sath? wo nullable ha ya tu stinr aie gha or null ana ka chances bhi ha
+  //!jo bhi value huthi ha data type ka sath lagha gha is ko mana fix kar di ka ya null nai hu gha
+  //! dont allow null is ko hardcoat kar dia lkn at the end is ko kch nai mili tu code crash hu jie gha srf wahi use karegha jahan milaghi he milaghi
+  //!null nai milagha bus
+  //?is ka sath code crash nai hu gha
+  //?? show the next statement  = frnd list
+  // studentinfo(name: "mehak", frndlst: "3");
+  //studentinfo();
+
+//studentinfo({required String name, String? frndlst}) {
+// String result = frndlst ??
+//     "means frnd list ma null arha ha"; //aghr function ma assign ha tu ajie ghi value wrna frnd lst ki bad wali condition chal jie ghi
+// print(result);
+//studentinfo({String? flutterdeveloper}) {
+  //String officekaceo = flutterdeveloper ?? "AAA";
+  // String officekaceo = flutterdeveloper!;
+  //String? officekaceo = flutterdeveloper;
+
+  //print(officekaceo);
+//}
+//ternary operator
+  // var age = 19;
+  // String result = age > 18 ? "allow" : "notallow";
+  // print(result);
+//}
+//arrow function
+//single line of code whan arrow func  askatha ha
+  //print(sumoftwonumber(3, 6));
+//}
+//sumoftwonumber(num1, num2) => num1 + num2; //only for one line code => yahi return kar raha hu gha
+
+// sumoftwonumber(num1, num2) {
+//   return num1 + num2;
+// }
+///////////////////project
+//crud operation c-creat add r-read print u- update d-dlt remove
+  print("welcome to my todo app");
+  bool isContiue = true;
+  while (isContiue) {
+    print("press1 for add task");
+    print("press2 for view  task");
+    print("press3 for update task");
+    print("press4 for dlt task");
+    print("press any other key to exit ");
+    String userInput = stdin.readLineSync()!;
+    if (userInput == "1") {
+      //integer tha is lia chala he nai
+      print("object");
+    } else if (userInput == '2') {
+    } else if (userInput == '3') {
+    } else if (userInput == '4') {
+    } else {
+      print("programended");
+      isContiue = false;
+    }
+  }
+}
+
+addtask() {
+  print("entre ur task");
+  String taskname = stdin.readLineSync()!;
+  task.add(taskname);
+  print("task added -> $taskname");
+}
