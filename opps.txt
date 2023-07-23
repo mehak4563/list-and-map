@@ -1,0 +1,73 @@
+//classes =>blue print structure cre8 karna reuse the function also
+//abstraction
+//inhertance
+//encapsulation
+//polymorphism
+//variable=> attributes, properties
+//functions => methods, behavior
+//object || instance
+void main() {
+  /**  Human /**itself type  */ human = Human()//default constructor; //instamce
+  Human human1 = Human();
+  Human human2 = Human();
+  human.name = "mehak";
+  human2.name = "amna";
+  print(human2.name);
+  print(human.name);
+  human.printHelloworld();
+  this key word current work choro parent ka pass jaon or us ka pass jo ha wo la aon
+
+}*/
+
+  //human.eating();
+  //human.running();
+
+/**class Human {
+  String name = "";
+  int age = 20;
+  int rollno = 054;
+  bool rider = false;
+
+  // printHelloworld() {
+  //   print("Helloworld");
+  // }
+  /////default constructor///
+  //Human(name) {
+  //name = xyz; //apna apma he value assign kar raha ha with in the function chk kar tha ha ||with in the function ma value nai ha tu parent ma jie gha
+  // this.name = name;
+  // this.age = age;
+  // this.rollno = rollno;
+  
+  // print("age of constructor $age");
+  // print("name from constructore $name");
+  // print("roll no of constructor $rollno");
+}
+
+  // eating() {
+  //   print("$name is eating");
+  // }
+
+  // running() {
+  //   print("$name is running");
+  // }*/
+  //////////////////////////////////////////////////////////////////////////////////////
+  smartphone sm1 = smartphone.andriod(camera: true, storage: 64);
+  print("camera: ${sm1.camera}");
+  print("storage: ${sm1.storage}");
+
+  smartphone sm2 = smartphone.ipad(camera: true, storage: 16);
+  print("camera: ${sm1.camera}");
+  print("storage: ${sm1.storage}");
+}
+
+class smartphone {
+  // smartphone() {
+  //   print("default constructor");
+  // }
+  bool camera = false;
+  int storage = 0;
+  smartphone({required this.camera, required this.storage});
+  smartphone.ipad({required this.camera, required this.storage});
+  smartphone.andriod({required this.camera, required this.storage});
+  smartphone.iphone({required this.camera, required this.storage});
+}
