@@ -1,0 +1,285 @@
+import 'dart:io';
+
+Map<String, String> users = {
+  "admin": "password123",
+  "user1": "pass123",
+};
+
+Map<String, bool> accessControl = {
+  "admin": true,
+  "user1": false,
+};
+
+List<String> catalog = [];
+List<String> newspapers = [];
+
+List<String> borrowedBooks = [];
+List<String> borrowedNewspapers = [];
+
+Map<String, String> issuedBooks = {};
+Map<String, String> issuedNewspapers = {};
+
+Map<String, Set<String>> issuedItemsDatabase = {};
+
+bool authenticateUser(String username, String password) {
+  if (users.containsKey(username) && users[username] == password) {
+    return true;
+  }
+  return false;
+}
+
+void addBook(String book) {
+  catalog.add(book);
+}
+
+void addNewspaper(String newspaper) {
+  newspapers.add(newspaper);
+}
+
+
+
+void issueBook(String book, String username) {
+  if (catalog.contains(book)) {
+    if (!borrowedBooks.contains(book)) {
+      if (accessControl[username] == true) {
+        DateTime dueDate = DateTime.now().add(Duration(days: 30));
+        String formattedDueDate = dueDate.toString().split(' ')[0];
+        issuedBooks[book] = formattedDueDate;
+        borrowedBooks.add(book);
+        addToIssuedItemsDatabase(username, book);
+        print("Book '$book' has been issued. Return by $formattedDueDate.");
+      } else {
+        print("$username does not have permission to issue books.");
+      }
+    } else {
+      print("Book '$book' is already borrowed by another user.");
+    }
+  } else {
+    print("Book '$book' is not available in the catalog.");
+  }
+}
+
+void issueNewspaper(String newspaper, String username) {
+  if (newspapers.contains(newspaper)) {
+    if (!borrowedNewspapers.contains(newspaper)) {
+      if (accessControl[username] == false) {
+        DateTime dueDate = DateTime.now().add(Duration(days: 7));
+        String formattedDueDate = dueDate.toString().split(' ')[0];
+        issuedNewspapers[newspaper] = formattedDueDate;
+        borrowedNewspapers.add(newspaper);
+        addToIssuedItemsDatabase(username, newspaper);
+        print(
+            "Newspaper '$newspaper' has been issued. Return by $formattedDueDate.");
+      } else {
+        print("$username does not have permission to issue newspapers.");
+      }
+    } else {
+      print("Newspaper '$newspaper' is already borrowed by another user.");
+    }
+  } else {
+    print("Newspaper '$newspaper' is not available in the catalog.");
+  }
+}
+
+void returnBook(String book) {
+  if (borrowedBooks.contains(book)) {
+    borrowedBooks.remove(book);
+    issuedBooks.remove(book);
+    print("Book '$book' has been returned.");
+  } else {
+    print("Book '$book' is not currently borrowed by any user.");
+  }
+}
+
+void returnNewspaper(String newspaper) {
+  if (borrowedNewspapers.contains(newspaper)) {
+    borrowedNewspapers.remove(newspaper);
+    issuedNewspapers.remove(newspaper);
+    print("Newspaper '$newspaper' has been returned.");
+  } else {
+    print("Newspaper '$newspaper' is not currently borrowed by any user.");
+  }
+}
+
+void showBookGallery() {
+  print("Book Gallery:");
+  catalog.forEach((book) => print("- $book"));
+}
+
+void showNewspaperGallery() {
+  print("Newspaper Gallery:");
+  newspapers.forEach((newspaper) => print("- $newspaper"));
+}
+
+void addToIssuedItemsDatabase(String username, String item) {
+  if (issuedItemsDatabase.containsKey(item)) {
+    issuedItemsDatabase[item]!.add(username);
+  } else {
+    issuedItemsDatabase[item] = {username};
+  }
+}
+
+void showIssuedItemsDatabase() {
+  print("Issued Items Database:");
+  issuedItemsDatabase.forEach((item, users) {
+    print("- $item: ${users.length} users");
+    users.forEach((user) => print("  - $user"));
+  });
+}
+
+void login() {
+  bool loggedIn = false;
+  String currentUser = "";
+
+  while (!loggedIn) {
+    print(
+        "||=========================================================================================||");
+    print(
+        "||=========================Please enter your username: ====================================||\n");
+    String username = stdin.readLineSync()!;
+    print(
+        "\n||========================================================================================||");
+    print(
+        "||=========================Please enter your password: ====================================||\n");
+
+    String password = stdin.readLineSync()!;
+    print(
+        "\n||=======================================================================================||");
+
+    if (authenticateUser(username, password)) {
+      loggedIn = true;
+      currentUser = username;
+      print(
+          "\n||=====================Login successful! Welcome, $currentUser.===========================||\n");
+    } else {
+      print("Invalid username or password. Please try again.");
+    }
+  }
+
+  if (accessControl[currentUser] == true) {
+    performAdminOperations(currentUser);
+  } else {
+    performUserOperations(currentUser);
+  }
+}
+
+void performAdminOperations(String username) {
+  String choice = "";
+  while (choice != "6") {
+    print(
+        "||*****************************************************************************************||");
+    print(
+        "||==========================   ADMIN MENU                  ================================||");
+    print(
+        "||==========================1. Issue Book                  ================================||");
+    print(
+        "||==========================2. Return Book                 ================================||");
+    print(
+        "||==========================3. Show Book Gallery           ================================||");
+    print(
+        "||==========================4. Show Issued Items Database  ================================||");
+    print(
+        "||==========================5. Add Newspaper to Catalog    ================================||");
+    print(
+        "||==========================6. Logout                      ================================||");
+    print(
+        "||*****************************************************************************************||");
+
+    print(
+        "\n||=======================Enter your choice: ===========================================||");
+    choice = stdin.readLineSync()!;
+
+    switch (choice) {
+      case "1":
+        print("\nEnter the book name:");
+        String book = stdin.readLineSync()!;
+        issueBook(book, username);
+        break;
+      case "2":
+        print("\nEnter the book name:");
+        String book = stdin.readLineSync()!;
+        returnBook(book);
+        break;
+      case "3":
+        showBookGallery();
+        break;
+      case "4":
+        showIssuedItemsDatabase();
+        break;
+      case "5":
+        print("\nEnter the newspaper name:");
+        String newspaper = stdin.readLineSync()!;
+        addNewspaper(newspaper);
+        break;
+      case "6":
+        print("Logout successful. Goodbye, $username!");
+        break;
+      default:
+        print("Invalid choice. Please try again.");
+        break;
+    }
+  }
+}
+
+void performUserOperations(String username) {
+  String choice = "";
+  while (choice != "5") {
+    print(
+        "||*****************************************************************************************||");
+    print(
+        "||==========================   User MENU          =========================================||");
+    print(
+        "||==========================1. Issue Book         =========================================||");
+    print(
+        "||==========================2. Return Book        =========================================||");
+    print(
+        "||==========================3. Show Book Gallery  =========================================||");
+    print(
+        "||==========================4. Issue newspaper    =========================================||");
+    print(
+        "||==========================5. Logout             =========================================||");
+    print(
+        "||*****************************************************************************************||");
+
+    print(
+        "\n||======================  Enter your choice:  =============================================||");
+    choice = stdin.readLineSync()!;
+
+    switch (choice) {
+      case "1":
+        print("\nEnter the book name:");
+        String book = stdin.readLineSync()!;
+        issueBook(book, username);
+        break;
+      case "2":
+        print("\nEnter the book name:");
+        String book = stdin.readLineSync()!;
+        returnBook(book);
+        break;
+      case "3":
+        showBookGallery();
+        break;
+      case "4":
+        print("\nEnter the newspaper name:");
+        String newspaper = stdin.readLineSync()!;
+        issueNewspaper(newspaper, username);
+        break;
+      case "5":
+        print("Logout successful. Goodbye, $username!");
+        break;
+      default:
+        print("Invalid choice. Please try again.");
+        break;
+    }
+  }
+}
+
+void main() {
+  addBook("Book 1");
+  addBook("Book 2");
+  addBook("Book 3");
+  addNewspaper("newspaper1");
+  addNewspaper("newspaper2");
+
+  login();
+}
