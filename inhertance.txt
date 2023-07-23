@@ -1,0 +1,32 @@
+//////////////////inhertance///////////////////
+///single
+///multiple
+///multilevel
+///hiercical
+void main() {
+  //person1.speak();
+   .eating();
+  Person name = Person("mehak");
+  print("the name of person $name");
+}
+
+class Human {
+  int rollno = 054;
+  String nickname = "";
+}
+
+class humanforinhertance {
+  String name = "";
+  int age = 0;
+  humanforinhertance({required this.name});
+
+  eating() {
+    print("$name is eating");
+  }
+}
+
+class Person extends humanforinhertance {
+  //speak() {
+  //print("that person can speak");
+  Person(xyz) : super(name: xyz);
+}
