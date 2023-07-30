@@ -1,0 +1,118 @@
+//function tu make work easy =>methods
+//classes use to make work more easire to add multiple function variable=attribute
+// void main() {
+//   person obj = person();
+//   obj.sleep();
+//   person obj1 = person();
+//   obj.name = "znb";
+//   obj1.sleep();
+// }
+
+// class person {
+//   String name = "mehak";
+//   sleep() {
+//     print("$name is sleeping");
+//   }
+// }
+//peramterize contructor
+// void main() {
+//   //person obj = person(name: "mehak", email: "abc@gmail.com");//when uh put required {}
+//   person obj = person("mehak", "abc@gmail.com");//this is simple
+//   obj.personinfo();
+// }
+
+// class person {
+//   //late milagha lkn late intilize hu gha damn show hu ka aie gha he aiegha
+
+//   // late String name;
+//   String name;
+//   String email;
+//   person(this.name, this.email);
+//   personinfo() {
+//     print("Name is: $name");
+//     print("email is : $email");
+//   }
+// }
+//////////////  inheritance
+void main() {
+  A obj = A();
+  obj.abc();
+  B obj1 = B();
+  obj1
+}
+
+class A {
+  abc() {
+    print("class A ka method");
+  }
+}
+class C {
+  abc() {
+    print("class A ka method");
+  }
+}
+class B extends A {
+  abc() {
+    print("class A ka method");
+  }
+}
+
+//function tu make work easy =>methods
+//classes use to make work more easire to add multiple function variable=attribute
+// void main() {
+//   person obj = person();
+//   obj.sleep();
+//   person obj1 = person();
+//   obj.name = "znb";
+//   obj1.sleep();
+// }
+
+// class person {
+//   String name = "mehak";
+//   sleep() {
+//     print("$name is sleeping");
+//   }
+// }
+//peramterize contructor
+// void main() {
+//   //person obj = person(name: "mehak", email: "abc@gmail.com");//when uh put required {}
+//   person obj = person("mehak", "abc@gmail.com");//this is simple
+//   obj.personinfo();
+// }
+
+// class person {
+//   //late milagha lkn late intilize hu gha damn show hu ka aie gha he aiegha
+
+//   // late String name;
+//   String name;
+//   String email;
+//   person(this.name, this.email);
+//   personinfo() {
+//     print("Name is: $name");
+//     print("email is : $email");
+//   }
+// }
+//////////////  inheritance
+void main() {
+  A obj = A();
+  obj.abc();
+  B obj1 = B();
+  obj1
+}
+
+class A {
+  abc() {
+    print("class A ka method");
+  }
+}
+class C {
+  abc() {
+    print("class A ka method");
+  }
+}
+class B extends A {
+  abc() {
+    print("class A ka method");
+  }
+}
+
